@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AutomovilModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Automovil">
+          <Key>
+            <PropertyRef Name="iID" />
+          </Key>
+          <Property Name="iID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vNombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="iEstilo" Type="int" Nullable="false" />
+          <Property Name="iCilindraje" Type="int" />
+          <Property Name="iCosto" Type="int" Nullable="false" />
+          <Property Name="vTransmision" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="iCantidadPuertas" Type="int" Nullable="false" />
+          <Property Name="iAno" Type="int" Nullable="false" />
+          <Property Name="vNombreMarca" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Function Name="sp_DAutomovil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_Ejemplo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_IAutomovil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vNombre" Type="varchar" Mode="In" />
+          <Parameter Name="iEstilo" Type="int" Mode="In" />
+          <Parameter Name="iCilindraje" Type="bit" Mode="In" />
+          <Parameter Name="iCosto" Type="int" Mode="In" />
+          <Parameter Name="vTransmision" Type="int" Mode="In" />
+          <Parameter Name="iCantidadPuertas" Type="int" Mode="In" />
+          <Parameter Name="iAno" Type="int" Mode="In" />
+          <Parameter Name="vNombreMarca" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_SAutomovil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_UAutomovil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iId" Type="int" Mode="In" />
+          <Parameter Name="vNombre" Type="varchar" Mode="In" />
+          <Parameter Name="iEstilo" Type="int" Mode="In" />
+          <Parameter Name="iCilindraje" Type="bit" Mode="In" />
+          <Parameter Name="iCosto" Type="int" Mode="In" />
+          <Parameter Name="vTransmision" Type="int" Mode="In" />
+          <Parameter Name="iCantidadPuertas" Type="int" Mode="In" />
+          <Parameter Name="iAno" Type="int" Mode="In" />
+          <Parameter Name="vNombreMarca" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="AutomovilModelStoreContainer">
+          <EntitySet Name="Automovil" EntityType="Self.Automovil" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AutomovilModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Automovil">
+          <Key>
+            <PropertyRef Name="iID" />
+          </Key>
+          <Property Name="iID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="iEstilo" Type="Int32" Nullable="false" />
+          <Property Name="iCilindraje" Type="Int32" />
+          <Property Name="iCosto" Type="Int32" Nullable="false" />
+          <Property Name="vTransmision" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="iCantidadPuertas" Type="Int32" Nullable="false" />
+          <Property Name="iAno" Type="Int32" Nullable="false" />
+          <Property Name="vNombreMarca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AutomovilE" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Automovil" EntityType="Self.Automovil" />
+          <FunctionImport Name="sp_DAutomovil">
+            <Parameter Name="iID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Ejemplo">
+            <Parameter Name="iID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_IAutomovil">
+            <Parameter Name="vNombre" Mode="In" Type="String" />
+            <Parameter Name="iEstilo" Mode="In" Type="Int32" />
+            <Parameter Name="iCilindraje" Mode="In" Type="Boolean" />
+            <Parameter Name="iCosto" Mode="In" Type="Int32" />
+            <Parameter Name="vTransmision" Mode="In" Type="Int32" />
+            <Parameter Name="iCantidadPuertas" Mode="In" Type="Int32" />
+            <Parameter Name="iAno" Mode="In" Type="Int32" />
+            <Parameter Name="vNombreMarca" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SAutomovil" ReturnType="Collection(AutomovilModel.sp_SAutomovil_Result)" />
+          <FunctionImport Name="sp_UAutomovil">
+            <Parameter Name="iId" Mode="In" Type="Int32" />
+            <Parameter Name="vNombre" Mode="In" Type="String" />
+            <Parameter Name="iEstilo" Mode="In" Type="Int32" />
+            <Parameter Name="iCilindraje" Mode="In" Type="Boolean" />
+            <Parameter Name="iCosto" Mode="In" Type="Int32" />
+            <Parameter Name="vTransmision" Mode="In" Type="Int32" />
+            <Parameter Name="iCantidadPuertas" Mode="In" Type="Int32" />
+            <Parameter Name="iAno" Mode="In" Type="Int32" />
+            <Parameter Name="vNombreMarca" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_SAutomovil_Result">
+          <Property Type="Int32" Name="iID" Nullable="false" />
+          <Property Type="String" Name="vNombre" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="iEstilo" Nullable="false" />
+          <Property Type="Int32" Name="iCilindraje" Nullable="true" />
+          <Property Type="Int32" Name="iCosto" Nullable="false" />
+          <Property Type="String" Name="vTransmision" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="iCantidadPuertas" Nullable="false" />
+          <Property Type="Int32" Name="iAno" Nullable="false" />
+          <Property Type="String" Name="vNombreMarca" Nullable="false" MaxLength="20" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AutomovilModelStoreContainer" CdmEntityContainer="AutomovilE">
+          <EntitySetMapping Name="Automovil">
+            <EntityTypeMapping TypeName="AutomovilModel.Automovil">
+              <MappingFragment StoreEntitySet="Automovil">
+                <ScalarProperty Name="iID" ColumnName="iID" />
+                <ScalarProperty Name="vNombre" ColumnName="vNombre" />
+                <ScalarProperty Name="iEstilo" ColumnName="iEstilo" />
+                <ScalarProperty Name="iCilindraje" ColumnName="iCilindraje" />
+                <ScalarProperty Name="iCosto" ColumnName="iCosto" />
+                <ScalarProperty Name="vTransmision" ColumnName="vTransmision" />
+                <ScalarProperty Name="iCantidadPuertas" ColumnName="iCantidadPuertas" />
+                <ScalarProperty Name="iAno" ColumnName="iAno" />
+                <ScalarProperty Name="vNombreMarca" ColumnName="vNombreMarca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_DAutomovil" FunctionName="AutomovilModel.Store.sp_DAutomovil" />
+          <FunctionImportMapping FunctionImportName="sp_Ejemplo" FunctionName="AutomovilModel.Store.sp_Ejemplo" />
+          <FunctionImportMapping FunctionImportName="sp_IAutomovil" FunctionName="AutomovilModel.Store.sp_IAutomovil" />
+          <FunctionImportMapping FunctionImportName="sp_SAutomovil" FunctionName="AutomovilModel.Store.sp_SAutomovil">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AutomovilModel.sp_SAutomovil_Result">
+                <ScalarProperty Name="iID" ColumnName="iID" />
+                <ScalarProperty Name="vNombre" ColumnName="vNombre" />
+                <ScalarProperty Name="iEstilo" ColumnName="iEstilo" />
+                <ScalarProperty Name="iCilindraje" ColumnName="iCilindraje" />
+                <ScalarProperty Name="iCosto" ColumnName="iCosto" />
+                <ScalarProperty Name="vTransmision" ColumnName="vTransmision" />
+                <ScalarProperty Name="iCantidadPuertas" ColumnName="iCantidadPuertas" />
+                <ScalarProperty Name="iAno" ColumnName="iAno" />
+                <ScalarProperty Name="vNombreMarca" ColumnName="vNombreMarca" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_UAutomovil" FunctionName="AutomovilModel.Store.sp_UAutomovil" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
